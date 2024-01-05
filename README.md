@@ -1,6 +1,5 @@
-# Base de code du projet P6 - Parcours Front-end
+# Projet 6 OpenClassroom: Fisheye
 
 ## Démarrer le projet
 
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
-
+lancer npm run dev.
