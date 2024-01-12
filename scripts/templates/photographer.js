@@ -1,8 +1,10 @@
 export const photographerTemplate = data => {
     const {  name, portrait, city, country, tagline, price } = data;
-
     const picture = `assets/photographers/${portrait}`;
 
+    
+    
+    //Importe les données des photographes 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
        
@@ -30,9 +32,23 @@ export const photographerTemplate = data => {
         const tarif = document.createElement('p');
         tarif.textContent = `${price} €/jour`;
         article.appendChild(tarif);
+        
+        //Rend les articles focusables
+        article.setAttribute('tabindex', '0');
+
        
         return (article);
 
     }
-    return { name, picture, getUserCardDOM }
+    
+
+    function getPhotographerPageDOM() {
+        const page = document.createElement('div');
+        page.classList.add('photographer-page');
+        page.appendChild(getUserCardDOM());
+
+        return page;
+    }
+
+    return { name, picture, getUserCardDOM, getPhotographerPageDOM };
 }
