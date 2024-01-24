@@ -1,11 +1,11 @@
+import { contactModal } from "./domLinker";
+
 export function displayModal() {
-    const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
+    contactModal.style.display = "block";
 }
 
 export function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
+    contactModal.style.display = "none";
 }
 
 
