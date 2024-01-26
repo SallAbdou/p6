@@ -5,7 +5,8 @@
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
+    margin: 0 5%;
+    
 }
 
 
@@ -42,10 +43,24 @@ article{
 }
 
 
+.photographer-page {
+    display: flex;
+    justify-content: space-between;
+
+    article {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 0%;
+        width: 90%;
+    }
+}
+
 
 .photographer-page img {
-    height: 100px;
     object-fit: cover;
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
 }
 
 .contact_button {
@@ -59,6 +74,8 @@ article{
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 8%;
+    margin-right: 0%;
 }
 
 .modal {
@@ -88,6 +105,7 @@ article{
     text-align: center;
 }
 
+//formulaire
 form {
     display: flex;
     width: 100%;
@@ -99,6 +117,7 @@ form label {
     color: #312E2E;
     font-size: 36px;
 }
+
 
 form div {
     display: flex;
@@ -115,15 +134,32 @@ form input {
     border-radius: 5px;
 }
 
+ .message_input{
+    height: 170px;
+
+}
+
+
+//medias
 section#medias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     img {
-        width: 200px;
-        height: 200px;
         object-fit: cover;
-        border-radius: 50%;
+        width: 350px;
+        height: 300px;
+        padding-bottom: 10%;
     }
 }
 
+///video 
+.class-perso-video {
+    width: 350px; 
+    height: 300px;
+    padding-bottom: 10%;
+    }
+    
 
 //tarif journalier des photographes
 
@@ -144,3 +180,4 @@ section#medias {
     bottom: 0;
     right: 0;
 }
+

@@ -8,6 +8,7 @@ import { getPhotographerById, getMediaByPhotographerId } from '../utils/api.js';
 import { photographerHeader, mediaContainer, imgCloseModal } from '../utils/domLinker.js';
 import { closeModal } from '../utils/contactForm.js';
 
+
 const getPhotographerIdFromURL = () => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);

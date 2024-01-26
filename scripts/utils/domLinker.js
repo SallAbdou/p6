@@ -7,3 +7,4 @@ export const photographerHeader = document.getElementById('photographerHeader');
 export const contactModal = document.getElementById("contact_modal");
 
 export const imgCloseModal = document.getElementById('img-close-modal')
+
