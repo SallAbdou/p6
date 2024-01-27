@@ -8,3 +8,9 @@ export const contactModal = document.getElementById("contact_modal");
 
 export const imgCloseModal = document.getElementById('img-close-modal')
 
+// modal
+export const firstname = document.getElementById('firstname')
+export const name = document.getElementById('name')
+export const email = document.getElementById('email')
+export const message = document.getElementById('message')
+export const form = document.querySelector('form')

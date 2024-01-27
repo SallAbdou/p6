@@ -5,7 +5,7 @@ import '../../css/style.scss'
 import { photographerTemplate } from '../templates/photographer.js';
 import { mediaTemplate } from '../templates/media.js';
 import { getPhotographerById, getMediaByPhotographerId } from '../utils/api.js';
-import { photographerHeader, mediaContainer, imgCloseModal } from '../utils/domLinker.js';
+import { photographerHeader, mediaContainer, imgCloseModal, firstname, name, email, message, form } from '../utils/domLinker.js';
 import { closeModal } from '../utils/contactForm.js';
 
 
@@ -50,6 +50,15 @@ const displayDataById = async () => {
 
 imgCloseModal.addEventListener('click', () => closeModal())
 
+form.addEventListener('submit', e => {
+    e.preventDefault()
+
+    console.log(`
+        firstname: ${firstname.value}
+        name: ${name.value}
+        email: ${email.value}
+        message: ${message.value}
+    `)
+})
 
 displayDataById();
-

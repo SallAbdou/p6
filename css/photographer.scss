@@ -6,39 +6,39 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 5%;
-    
+
 }
 
 
 //fiche des photographes
-article{
+article {
     display: flex;
-    
-   h2 {
-    color: #D3573C;
-    font-family: "DM Sans";
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+
+    h2 {
+        color: #D3573C;
+        font-family: "DM Sans";
+        font-size: 64px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
     }
 
     h3 {
-     color: #901C1C;
-     font-family: "DM Sans";
-     font-size: 24px;
-     font-style: normal;
-     font-weight: 400;
-     line-height: normal;
+        color: #901C1C;
+        font-family: "DM Sans";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
     }
 
     h4 {
-    color: #525252;
-    font-family: "DM Sans";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+        color: #525252;
+        font-family: "DM Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
     }
 }
 
@@ -78,66 +78,7 @@ article{
     margin-right: 0%;
 }
 
-.modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 35px;
-    margin: auto;
-}
 
-.modal header {
-    justify-content: space-between;
-    width: 100%;
-}
-
-.modal header img {
-    cursor: pointer;
-}
-
-.modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
-}
-
-//formulaire
-form {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-form label {
-    color: #312E2E;
-    font-size: 36px;
-}
-
-
-form div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
-}
-
-form input {
-    width: 100%;
-    height: 68px;
-    border: none;
-    border-radius: 5px;
-}
-
- .message_input{
-    height: 170px;
-
-}
 
 
 //medias
@@ -145,6 +86,7 @@ section#medias {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+
     img {
         object-fit: cover;
         width: 350px;
@@ -155,11 +97,12 @@ section#medias {
 
 ///video 
 .class-perso-video {
-    width: 350px; 
+    width: 350px;
     height: 300px;
     padding-bottom: 10%;
-    }
-    
+    object-fit: cover;
+}
+
 
 //tarif journalier des photographes
 
@@ -180,4 +123,3 @@ section#medias {
     bottom: 0;
     right: 0;
 }
-

@@ -29,12 +29,14 @@
         </header>
         <form>
           <div>
-            <label>Prénom</label>
-            <input />
-            <label>Nom</label>
-            <input />
-            <label>Votre Message</label>
-            <input class="message_input" />
+            <label id="label-firstname" for="firstname">Prénom</label>
+            <input type="text" id="firstname" name="firstname" aria-labelledby="label-firstname" />
+            <label id="label-name" for="name">Prénom</label>
+            <input type="text" id="name" name="name" aria-labelledby="label-name" />
+            <label id="label-email" for="email">Email</label>
+            <input type="email" id="email" name="email" aria-labelledby="label-email" />
+            <label id="label-message" for="message">Votre message</label>
+            <input id="message" name="message" aria-labelledby="label-message" class="message_input" />
           </div>
           <button class="contact_button">Envoyer</button>
         </form>

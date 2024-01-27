@@ -1,6 +1,3 @@
-import videojs from 'video.js';    //pour la gestion des medias videos
-import 'video.js/dist/video-js.css';
-
 export const mediaTemplate = data => {
     const { id, photographerId, title, image, likes, date, price, video } = data;
     const mediaPath = `assets/medias/`;
@@ -10,11 +7,13 @@ export const mediaTemplate = data => {
         const article = document.createElement('article');
 
         if (video) {
-
+           
+            //prise en compte des vidéos
             const videoElement = document.createElement('video');
-            videoElement.classList.add('video-js', 'class-perso-video');
-            videoElement.controls = true;
+            videoElement.classList.add('class-perso-video');
+            videoElement.controls = true; //contrôle des médias vidéos
 
+          
             // Ajoute les sources des vidéos
             const sourceElement = document.createElement('source');
             sourceElement.src = `${mediaPath}/${video}`;
@@ -23,16 +22,13 @@ export const mediaTemplate = data => {
 
             article.appendChild(videoElement);
 
-            // Initialise Video.js 
-            videojs(videoElement);
-
         } else {
             const img = document.createElement('img');
             img.alt = title;
             img.setAttribute('src', picture);
             article.appendChild(img);
         }
-       
+
         article.setAttribute('tabindex', '0'); //rend les articles focusables
         return article;
     };
