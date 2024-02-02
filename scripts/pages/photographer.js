@@ -48,7 +48,17 @@ const displayDataById = async () => {
     }
 };
 
+//EventListener
 imgCloseModal.addEventListener('click', () => closeModal())
+
+//Focus de la modale
+firstname.setAttribute('tabindex','0')
+name.setAttribute('tabindex','0')
+email.setAttribute('tabindex','0')
+message.setAttribute('tabindex','0')
+imgCloseModal.setAttribute('tabindex', '0');
+
+
 
 form.addEventListener('submit', e => {
     e.preventDefault()

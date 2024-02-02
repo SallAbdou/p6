@@ -1,3 +1,5 @@
+import { openCarousel, closeCarousel } from './carousel.js';
+
 export const mediaTemplate = data => {
     const { id, photographerId, title, image, likes, date, price, video } = data;
     const mediaPath = `assets/medias/`;
@@ -11,7 +13,7 @@ export const mediaTemplate = data => {
             //prise en compte des vidéos
             const videoElement = document.createElement('video');
             videoElement.classList.add('class-perso-video');
-            videoElement.controls = true; //contrôle des médias vidéos
+            videoElement.controls = false; //contrôle des médias vidéos, mettre en false pour enlever les contrôles
 
           
             // Ajoute les sources des vidéos
@@ -28,8 +30,13 @@ export const mediaTemplate = data => {
             img.setAttribute('src', picture);
             article.appendChild(img);
         }
-
+        
         article.setAttribute('tabindex', '0'); //rend les articles focusables
+        
+        article.addEventListener('click', () => {
+            openCarousel();
+        });
+
         return article;
     };
 
