@@ -14,3 +14,7 @@ export const name = document.getElementById('name')
 export const email = document.getElementById('email')
 export const message = document.getElementById('message')
 export const form = document.querySelector('form')
+
+export const lightbox = document.getElementById('lightbox')
+export const btnCloseLightbox = document.getElementById('img-close-lightbox')
+export const lightboxContainer = document.getElementById('lightbox-container')

@@ -1,19 +1,28 @@
-export { openCarousel, closeCarousel };
+import { lightbox, lightboxContainer, mediaContainer } from "../utils/domLinker"
 
 let currentIndex = 0;
 let mediaItems = [];
 
-const openCarousel = () => {
+export const openCarousel = () => {
+    lightbox.style.display = "flex"
+
+    lightboxContainer.innerHTML = ""
+
     // Affiche le carrousel et initialise les médias
     currentIndex = 0;
-    mediaItems = document.querySelectorAll('#medias article');
+    const cloneMediaItems = mediaContainer.cloneNode(true)
+    lightboxContainer.appendChild(cloneMediaItems)
+
+    mediaItems = document.querySelectorAll('#lightbox-container article');
+
     updateCarousel();
 
     // Ajoute un événement pour fermer le carrousel
     document.addEventListener('keydown', keyPress);
 };
 
-const closeCarousel = () => {
+export const closeCarousel = () => {
+    lightbox.style.display = "none"
     document.removeEventListener('keydown', keyPress);
 };
 
@@ -22,11 +31,11 @@ const keyPress = (event) => {
     if (event.key === 'ArrowLeft') {
         navigateCarousel('prev');
         console.log("testleft"); //test console
-   
+
     } else if (event.key === 'ArrowRight') {
-        navigateCarousel('next'); 
+        navigateCarousel('next');
         console.log("testright");//test console
-  
+
     } else if (event.key === 'Escape') {
         closeCarousel();
     }
@@ -38,6 +47,10 @@ const navigateCarousel = (direction) => {
         currentIndex -= 1;
     } else if (direction === 'next' && currentIndex < mediaItems.length - 1) {
         currentIndex += 1;
+    } else if (direction === 'prev' && currentIndex === 0) {
+        currentIndex = mediaItems.length - 1
+    } else if (direction === 'next' && currentIndex === mediaItems.length - 1) {
+        currentIndex = 0
     }
 
     updateCarousel();
@@ -53,4 +66,3 @@ const updateCarousel = () => {
         }
     });
 };
-

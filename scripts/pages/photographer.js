@@ -5,8 +5,12 @@ import '../../css/style.scss'
 import { photographerTemplate } from '../templates/photographer.js';
 import { mediaTemplate } from '../templates/media.js';
 import { getPhotographerById, getMediaByPhotographerId } from '../utils/api.js';
-import { photographerHeader, mediaContainer, imgCloseModal, firstname, name, email, message, form } from '../utils/domLinker.js';
+import {
+    photographerHeader, mediaContainer, imgCloseModal, firstname, name, email,
+    message, form, btnCloseLightbox
+} from '../utils/domLinker.js';
 import { closeModal } from '../utils/contactForm.js';
+import { closeCarousel } from '../templates/carousel.js';
 
 
 const getPhotographerIdFromURL = () => {
@@ -50,12 +54,13 @@ const displayDataById = async () => {
 
 //EventListener
 imgCloseModal.addEventListener('click', () => closeModal())
+btnCloseLightbox.addEventListener('click', () => closeCarousel())
 
 //Focus de la modale
-firstname.setAttribute('tabindex','0')
-name.setAttribute('tabindex','0')
-email.setAttribute('tabindex','0')
-message.setAttribute('tabindex','0')
+firstname.setAttribute('tabindex', '0')
+name.setAttribute('tabindex', '0')
+email.setAttribute('tabindex', '0')
+message.setAttribute('tabindex', '0')
 imgCloseModal.setAttribute('tabindex', '0');
 
 
