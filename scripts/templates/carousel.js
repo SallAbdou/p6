@@ -11,14 +11,30 @@ export const openCarousel = () => {
     // Affiche le carrousel et initialise les médias
     currentIndex = 0;
     const cloneMediaItems = mediaContainer.cloneNode(true)
+
     lightboxContainer.appendChild(cloneMediaItems)
 
     mediaItems = document.querySelectorAll('#lightbox-container article');
 
+    mediaItems.forEach(item => {
+        const image = item.querySelector('img');
+        if (image) {
+            image.classList.add('carousel-image');
+        }
+    });
+    
+    //gestion des flèches 
+    const leftArrow = document.getElementById('left-arrow');
+    const rightArrow = document.getElementById('right-arrow');
+    leftArrow.addEventListener('click', () => navigateCarousel('prev'));
+    rightArrow.addEventListener('click', () => navigateCarousel('next'));
+    
+   
     updateCarousel();
 
     // Ajoute un événement pour fermer le carrousel
     document.addEventListener('keydown', keyPress);
+    
 };
 
 export const closeCarousel = () => {
@@ -66,3 +82,4 @@ const updateCarousel = () => {
         }
     });
 };
+

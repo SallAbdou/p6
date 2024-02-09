@@ -76,6 +76,49 @@
     }
 }
 
-#ligthbox {
-    background-color: white;
+#lightbox{
+    .modal{   
+         background-color: transparent;
+            header{
+                img{
+                cursor: pointer;
+                padding-top: 50px;
+                }
+            }
+                
+    }
 }
+
+#lightbox-container{
+    
+    .carousel-image {
+        width: 1000px;
+        height: 1000px;
+        object-fit: cover;
+        left: 50%;
+        transform: translateX(-50%);
+        position: fixed;
+    }
+  
+  
+    .left-arrow {
+       
+        padding-left: 20px;
+        padding-top:0;
+        left: 0;
+        position: fixed;
+
+        }
+        
+    }
+    .right-arrow {
+     
+        padding-right: 20px;
+        padding-top:0;
+        left: 0;
+        position: fixed;
+
+       
+    }
+
+

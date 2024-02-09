@@ -15,6 +15,10 @@ export const email = document.getElementById('email')
 export const message = document.getElementById('message')
 export const form = document.querySelector('form')
 
+//lightbox
 export const lightbox = document.getElementById('lightbox')
 export const btnCloseLightbox = document.getElementById('img-close-lightbox')
 export const lightboxContainer = document.getElementById('lightbox-container')
+export const leftArrow = document.getElementById('left-arrow')
+export const rightArrow = document.getElementById('right-arrow')
+
