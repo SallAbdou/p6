@@ -39,7 +39,25 @@
             img {
                 cursor: pointer;
             }
+
+            .left-arrow{
+                left: 188px;
+                position: fixed;
+                padding-top: 500px;
+            }
+
+            .right-arrow{
+                right: 188px;
+                position: fixed;
+                padding-top: 500px;
+            }
+
+           
         }
+
+
+        }
+        
 
         //formulaire
         form {
@@ -74,16 +92,23 @@
             }
         }
     }
-}
+
 
 #lightbox{
     .modal{   
          background-color: transparent;
             header{
-                img{
-                cursor: pointer;
-                padding-top: 50px;
+               
+                div{
+                    position: fixed;
+                    bottom: 0;
                 }
+                .img-close-lightbox{
+                    position: fixed;
+                    right: 12%;
+                    top: 15px;
+                }
+    
             }
                 
     }
@@ -93,32 +118,14 @@
     
     .carousel-image {
         width: 1000px;
-        height: 1000px;
+        height: 700px;
         object-fit: cover;
         left: 50%;
         transform: translateX(-50%);
         position: fixed;
+        top: 1%;
     }
   
-  
-    .left-arrow {
-       
-        padding-left: 20px;
-        padding-top:0;
-        left: 0;
-        position: fixed;
-
-        }
-        
-    }
-    .right-arrow {
-     
-        padding-right: 20px;
-        padding-top:0;
-        left: 0;
-        position: fixed;
-
-       
-    }
+}
 
 

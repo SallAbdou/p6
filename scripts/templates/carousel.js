@@ -25,7 +25,9 @@ export const openCarousel = () => {
     
     //gestion des flèches 
     const leftArrow = document.getElementById('left-arrow');
+    leftArrow.classList.add('left-arrow');
     const rightArrow = document.getElementById('right-arrow');
+    rightArrow.classList.add('right-arrow');
     leftArrow.addEventListener('click', () => navigateCarousel('prev'));
     rightArrow.addEventListener('click', () => navigateCarousel('next'));
     

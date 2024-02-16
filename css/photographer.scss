@@ -87,21 +87,73 @@ section#medias {
     flex-wrap: wrap;
     justify-content: space-around;
 
-    img {
-        object-fit: cover;
-        width: 350px;
-        height: 300px;
-        padding-bottom: 10%;
+    a {
+        margin-bottom: 20px;
+
+        article {
+            display: flex;
+            flex-direction: column;
+
+            img {
+                object-fit: cover;
+                width: 350px;
+                height: 300px;
+                border-radius: 5px;
+            }
+
+            ///video 
+            .class-perso-video {
+                width: 350px;
+                height: 300px;
+                padding-bottom: 10%;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+
+            .container-description {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 10px;
+
+                .name {
+                    font-family: DM Sans;
+                    font-size: 24px;
+                    font-weight: 400;
+                    line-height: 31px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    color: $red;
+                }
+
+                .container-like {
+                    display: flex;
+                    align-items: center;
+
+                    .like-number {
+                        font-family: DM Sans;
+                        font-size: 24px;
+                        font-weight: 500;
+                        line-height: 31px;
+                        letter-spacing: 0em;
+                        text-align: right;
+                        color: $red;
+                    }
+
+                    img {
+                        height: 19px;
+                        width: 19px;
+                        padding-left: 10px;
+                    }
+                }
+            }
+        }
     }
+
+
+
 }
 
-///video 
-.class-perso-video {
-    width: 350px;
-    height: 300px;
-    padding-bottom: 10%;
-    object-fit: cover;
-}
 
 
 //tarif journalier des photographes
@@ -123,4 +175,3 @@ section#medias {
     bottom: 0;
     right: 0;
 }
-

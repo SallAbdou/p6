@@ -3,7 +3,7 @@
 
 import '../../css/style.scss'
 import { photographerTemplate } from '../templates/photographer.js';
-import { mediaTemplate } from '../templates/media.js';
+import { mediaTemplate, } from '../templates/media.js';
 import { getPhotographerById, getMediaByPhotographerId } from '../utils/api.js';
 import {
     photographerHeader, mediaContainer, imgCloseModal, firstname, name, email,
@@ -38,7 +38,20 @@ const displayDataById = async () => {
         const tarifContainer = document.createElement('div');
         tarifContainer.textContent = `${photographer.price} €/jour`;
         tarifJournalier.appendChild(tarifContainer);
+        
+        //calcul du nombre de likes
+        let totalLikes = 0;
+        medias.forEach(media => {
+            totalLikes += media.likes || 0;
+        });
 
+        // Ajouter le nombre total de likes au tarif container
+        tarifContainer.textContent += `  ${totalLikes} likes`;
+        
+
+        // Ajouter le container à tarif journallier
+        tarifJournalier.appendChild(tarifContainer);
+        
         // creating medias
         medias.forEach(media => {
             const mediaPageModel = mediaTemplate(media)

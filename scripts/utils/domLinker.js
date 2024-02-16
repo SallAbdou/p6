@@ -7,6 +7,7 @@ export const photographerHeader = document.getElementById('photographerHeader');
 export const contactModal = document.getElementById("contact_modal");
 
 export const imgCloseModal = document.getElementById('img-close-modal')
+export const tarifJournalier = document.getElementById('tarif-journalier');
 
 // modal
 export const firstname = document.getElementById('firstname')
@@ -21,4 +22,3 @@ export const btnCloseLightbox = document.getElementById('img-close-lightbox')
 export const lightboxContainer = document.getElementById('lightbox-container')
 export const leftArrow = document.getElementById('left-arrow')
 export const rightArrow = document.getElementById('right-arrow')
-
