@@ -19,9 +19,20 @@
   <main id="main">
     <section class="photograph-header" id="photographerHeader">
     </section>
+
+   <!--trie à rajouter-->  
+    <section class="trie">
+      <select id="menu-tri">
+        <option value="date">Date</option>
+        <option value="popularite">Popularité</option>
+        <option value="titre">Titre</option>
+    </select>
+    </section>
+
     <section id="medias"></section>
     <section id="tarif-journalier">
       <!-- tarif journalier des photographes -->
+      <div></div>
     </section>
 
 
@@ -29,7 +40,7 @@
     <div id="contact_modal">
       <div class="modal">
         <header>
-          <h2>Contactez-moi</h2>  
+          <h2>Contactez-moi</h2>
           <!--bouton de fermeture de la modale-->
           <img id="img-close-modal" src="assets/icons/close.svg" />
         </header>
@@ -48,16 +59,20 @@
         </form>
       </div>
     </div>
+
+
+  
+
     <div id="lightbox">
-      <div class="modal">  
+      <div class="modal">
         <header>
           <!--bouton de fermeture de la modale-->
-          <img id="img-close-lightbox" src="assets/icons/close.svg" />    
+          <img id="img-close-lightbox" src="assets/icons/close.svg" />
           <!-- Flèche de gauche -->
-          <img id="left-arrow" src="assets/icons/left.png"/>
+          <img id="left-arrow" src="assets/icons/left.png" />
           <!-- Flèche de droite -->
-          <img id="right-arrow" src="assets/icons/right.png"/>
-        <div id="lightbox-container"></div>
+          <img id="right-arrow" src="assets/icons/right.png" />
+          <div id="lightbox-container"></div>
       </div>
     </div>
   </main>

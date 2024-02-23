@@ -103,9 +103,9 @@
                     position: fixed;
                     bottom: 0;
                 }
-                .img-close-lightbox{
+                #img-close-lightbox{
                     position: fixed;
-                    right: 12%;
+                    right: 7%;
                     top: 15px;
                 }
     
@@ -125,7 +125,16 @@
         position: fixed;
         top: 1%;
     }
-  
-}
 
+ #medias{
+    a {
+    
+        article {
+        position: fixed;
+        bottom: 0px; 
+     }
+    
+    } 
+  }
+}
 
