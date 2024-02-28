@@ -19,20 +19,14 @@
   <main id="main">
     <section class="photograph-header" id="photographerHeader">
     </section>
-
-   <!--trie à rajouter-->  
-    <section class="trie">
-      <select id="menu-tri">
-        <option value="date">Date</option>
-        <option value="popularite">Popularité</option>
-        <option value="titre">Titre</option>
-    </select>
-    </section>
-
     <section id="medias"></section>
-    <section id="tarif-journalier">
+    <section id="tarifs">
       <!-- tarif journalier des photographes -->
-      <div></div>
+      <div>
+        <span id="total-likes"></span>
+        <img src="./public/assets/icons/favorite.png" alt="like">
+      </div>
+      <span id="tarif-journalier"></span>
     </section>
 
 
@@ -59,10 +53,6 @@
         </form>
       </div>
     </div>
-
-
-  
-
     <div id="lightbox">
       <div class="modal">
         <header>

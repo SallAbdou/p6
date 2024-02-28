@@ -11,6 +11,8 @@ import {
 } from '../utils/domLinker.js';
 import { closeModal } from '../utils/contactForm.js';
 import { closeCarousel } from '../templates/carousel.js';
+import { likeTemplate } from '..//templates/like.js';
+import { state } from '../utils/state.js';
 
 
 const getPhotographerIdFromURL = () => {
@@ -22,9 +24,10 @@ const getPhotographerIdFromURL = () => {
 const displayDataById = async () => {
     const photographerId = getPhotographerIdFromURL();
     const photographer = await getPhotographerById(photographerId);
-    const medias = await getMediaByPhotographerId(photographerId)
+    state.medias = await getMediaByPhotographerId(photographerId)
 
-    console.log('medias:', medias)
+
+    console.log('state.medias:', state.medias)
 
     if (photographer) {
 
@@ -33,27 +36,32 @@ const displayDataById = async () => {
         const photographerPageDOM = photographerPageModel.getPhotographerPageDOM();
         photographerHeader.appendChild(photographerPageDOM);
 
-        // test pour afficher les tarifs journalier des photographes
-        const tarifJournalier = document.getElementById('tarif-journalier');
-        const tarifContainer = document.createElement('div');
-        tarifContainer.textContent = `${photographer.price} €/jour`;
-        tarifJournalier.appendChild(tarifContainer);
-        
-        //calcul du nombre de likes
-        let totalLikes = 0;
-        medias.forEach(media => {
-            totalLikes += media.likes || 0;
-        });
+        likeTemplate(photographer).getLikesCardDOM()
 
-        // Ajouter le nombre total de likes au tarif container
-        tarifContainer.textContent += `  ${totalLikes} likes`;
-        
+        // // test pour afficher les tarifs journalier des photographes
+        // const tarifJournalier = document.getElementById('tarif-journalier');
+        // const tarifContainer = document.createElement('div');
+        // tarifContainer.textContent = `${photographer.price} €/jour`;
+        // tarifJournalier.appendChild(tarifContainer);
 
-        // Ajouter le container à tarif journallier
-        tarifJournalier.appendChild(tarifContainer);
-        
+        // //calcul du nombre de likes
+        // let totalLikes = 0;
+        // medias.forEach(media => {
+        //     totalLikes += media.likes || 0;
+        // });
+
+        // // Ajouter le nombre total de likes au tarif container
+        // tarifContainer.textContent += `  ${totalLikes} likes`;
+
+
+        // // Ajouter le container à tarif journallier
+        // tarifJournalier.appendChild(tarifContainer);
+
+
+
+
         // creating medias
-        medias.forEach(media => {
+        state.medias.forEach(media => {
             const mediaPageModel = mediaTemplate(media)
             const mediaPageDOM = mediaPageModel.getMediaCardDOM()
             mediaContainer.appendChild(mediaPageDOM)

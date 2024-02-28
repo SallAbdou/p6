@@ -1,6 +1,6 @@
 import { openCarousel, closeCarousel } from './carousel.js';
 import { state } from '../utils/state.js';
-import { tarifContainer } from '../utils/domLinker.js';
+import { totalLikes } from '../utils/domLinker.js';
 
 export const mediaTemplate = data => {
     const { id, photographerId, title, image, likes, date, price, video } = data;
@@ -60,24 +60,24 @@ export const mediaTemplate = data => {
         containerLike.appendChild(imageLikeIcon)
 
         imageLikeIcon.addEventListener('click', e => {
-            e.stopPropagation();
-        
-            // Increment like and total like one time on click
+            e.stopPropagation()
+            e.preventDefault()
+
+            // increment like and total like one time on click
             if (!imageLikeIcon.classList.contains('liked')) {
-                imageLikeIcon.classList.add('liked');
-                spanLikeNumber.innerHTML = likes + 1;
-        
-                // Met à jour le nombre total de likes dans state.medias
-                const currentMedia = state.medias.find(media => media.id === data.id);
-                currentMedia.likes++;
-        
-                // Recalcule le nombre total de likes
-                const totalLikes = state.medias.reduce((acc, currentValue) => acc + currentValue.likes, 0);
-        
-                // Met à jour le texte dans tarifContainer
-                tarifContainer.textContent = ` ${totalLikes} likes`;
+                imageLikeIcon.classList.add('liked')
+                spanLikeNumber.innerHTML = likes + 1
+
+                console.log(state.medias)
+
+                let findCurrentMedia = state.medias.find(media => media.id === data.id)
+                findCurrentMedia.likes++
+
+
+                const total = state.medias.reduce((acc, currentValue) => acc + currentValue.likes, 0)
+                totalLikes.textContent = `${total}`;
             }
-        });
+        })
 
         article.appendChild(containerDescription)
 

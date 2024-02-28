@@ -8,7 +8,8 @@ export const contactModal = document.getElementById("contact_modal");
 
 export const imgCloseModal = document.getElementById('img-close-modal')
 export const tarifJournalier = document.getElementById('tarif-journalier');
-export const tarifContainer = document.querySelector('#tarif-journalier div')
+export const tarifContainer = document.querySelector('#tarifs')
+export const totalLikes = document.getElementById('total-likes')
 
 // modal
 export const firstname = document.getElementById('firstname')
