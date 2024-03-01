@@ -55,7 +55,7 @@ export const mediaTemplate = data => {
         containerLike.appendChild(spanLikeNumber)
 
         const imageLikeIcon = document.createElement('img')
-        imageLikeIcon.src = 'public/assets/icons/favorite.png'
+        imageLikeIcon.src = '/assets/icons/favorite.png'
         imageLikeIcon.alt = 'like'
         containerLike.appendChild(imageLikeIcon)
 

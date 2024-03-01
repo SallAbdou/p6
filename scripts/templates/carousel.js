@@ -18,8 +18,12 @@ export const openCarousel = () => {
 
     mediaItems.forEach(item => {
         const image = item.querySelector('img');
+        const video = item.querySelector('video');
         if (image) {
             image.classList.add('carousel-image');
+        }
+        if (video) {
+            video.id = 'carousel-video';
         }
     });
     

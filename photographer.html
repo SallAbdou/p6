@@ -10,21 +10,31 @@
 
 <body>
 
-  </div>
   <header>
     <a href="index.html">
-      <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
+      <img src="/assets/images/logo.png" class="logo" alt="Fisheye Home page" />
     </a>
   </header>
   <main id="main">
     <section class="photograph-header" id="photographerHeader">
     </section>
+ 
+  <!-- Menu Déroulant-->    
+  <div class="dropdown-container"> 
+    <label for="sort-dropdown">Trier Par:</label>
+    <select id="sort-dropdown">
+      <option value="date">Date</option>
+      <option value="popularity">Popularité</option>
+      <option value="price">Prix</option>
+    </select>
+    </div>
+    
     <section id="medias"></section>
     <section id="tarifs">
       <!-- tarif journalier des photographes -->
       <div>
         <span id="total-likes"></span>
-        <img src="./public/assets/icons/favorite.png" alt="like">
+        <img src="/assets/icons/favorite.png" alt="like">
       </div>
       <span id="tarif-journalier"></span>
     </section>

@@ -13,6 +13,7 @@ import { closeModal } from '../utils/contactForm.js';
 import { closeCarousel } from '../templates/carousel.js';
 import { likeTemplate } from '..//templates/like.js';
 import { state } from '../utils/state.js';
+import { sortMedia } from '../utils/sortMedia.js';
 
 
 const getPhotographerIdFromURL = () => {
@@ -38,28 +39,6 @@ const displayDataById = async () => {
 
         likeTemplate(photographer).getLikesCardDOM()
 
-        // // test pour afficher les tarifs journalier des photographes
-        // const tarifJournalier = document.getElementById('tarif-journalier');
-        // const tarifContainer = document.createElement('div');
-        // tarifContainer.textContent = `${photographer.price} €/jour`;
-        // tarifJournalier.appendChild(tarifContainer);
-
-        // //calcul du nombre de likes
-        // let totalLikes = 0;
-        // medias.forEach(media => {
-        //     totalLikes += media.likes || 0;
-        // });
-
-        // // Ajouter le nombre total de likes au tarif container
-        // tarifContainer.textContent += `  ${totalLikes} likes`;
-
-
-        // // Ajouter le container à tarif journallier
-        // tarifJournalier.appendChild(tarifContainer);
-
-
-
-
         // creating medias
         state.medias.forEach(media => {
             const mediaPageModel = mediaTemplate(media)
@@ -73,9 +52,28 @@ const displayDataById = async () => {
     }
 };
 
+//Fonction d'affichage des médias triés 
+const displaySortedMedia = (sortBy) => {
+    mediaContainer.innerHTML = '';
+    const sortedMedia = sortMedia(state.medias.slice(), sortBy);
+
+    sortedMedia.forEach(media => {
+        const mediaPageModel = mediaTemplate(media);
+        const mediaPageDOM = mediaPageModel.getMediaCardDOM();
+        mediaContainer.appendChild(mediaPageDOM);
+    });
+};
+
+
 //EventListener
 imgCloseModal.addEventListener('click', () => closeModal())
 btnCloseLightbox.addEventListener('click', () => closeCarousel())
+//EventListener du menu déroulant
+document.getElementById('sort-dropdown').addEventListener('change', function() {
+    var sortBy = this.value; // Ici, on récupère la valeur sélectionnée dans le dropdown
+    displaySortedMedia(sortBy); // Puis on appelle displaySortedMedia avec le tri sélectionné 
+});
+
 
 //Focus de la modale
 firstname.setAttribute('tabindex', '0')

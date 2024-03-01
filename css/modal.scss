@@ -114,9 +114,9 @@
     }
 }
 
-#lightbox-container{
-    
-    .carousel-image {
+#lightbox-container {
+    .carousel-image,
+    #carousel-video {
         width: 1000px;
         height: 700px;
         object-fit: cover;
@@ -125,6 +125,7 @@
         position: fixed;
         top: 1%;
     }
+    
 
  #medias{
     a {
