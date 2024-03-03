@@ -1,96 +1,90 @@
-import { openCarousel, closeCarousel } from './carousel.js';
-import { state } from '../utils/state.js';
-import { totalLikes } from '../utils/domLinker.js';
+import { openCarousel } from './carousel.js'
+import { state } from '../utils/state.js'
+import { totalLikes } from '../utils/domLinker.js'
 
 export const mediaTemplate = data => {
-    const { id, photographerId, title, image, likes, date, price, video } = data;
-    const mediaPath = `assets/medias/`;
-    const picture = `assets/medias/${image}`;
+  const { title, image, likes, video } = data
+  const mediaPath = 'assets/medias/'
+  const picture = `assets/medias/${image}`
 
-    const getMediaCardDOM = () => {
-        const a = document.createElement('a')
-        a.href = "#"
-        const article = document.createElement('article');
-        a.appendChild(article)
+  const getMediaCardDOM = () => {
+    const a = document.createElement('a')
+    a.href = '#'
+    const article = document.createElement('article')
+    a.appendChild(article)
 
-        if (video) {
+    if (video) {
+      // prise en compte des vidéos
+      const videoElement = document.createElement('video')
+      videoElement.classList.add('class-perso-video')
+      videoElement.controls = false // contrôle des médias vidéos, mettre en false pour enlever les contrôles
 
-            //prise en compte des vidéos
-            const videoElement = document.createElement('video');
-            videoElement.classList.add('class-perso-video');
-            videoElement.controls = false; //contrôle des médias vidéos, mettre en false pour enlever les contrôles
+      // Ajoute les sources des vidéos
+      const sourceElement = document.createElement('source')
+      sourceElement.src = `${mediaPath}/${video}`
+      sourceElement.type = 'video/mp4'
+      videoElement.appendChild(sourceElement)
 
+      article.appendChild(videoElement)
+    } else {
+      const img = document.createElement('img')
+      img.alt = title
+      img.setAttribute('src', picture)
+      article.appendChild(img)
+    }
 
-            // Ajoute les sources des vidéos
-            const sourceElement = document.createElement('source');
-            sourceElement.src = `${mediaPath}/${video}`;
-            sourceElement.type = 'video/mp4';
-            videoElement.appendChild(sourceElement);
+    // description sous la photo et bouton like
+    const containerDescription = document.createElement('div')
+    containerDescription.setAttribute('class', 'container-description')
 
-            article.appendChild(videoElement);
+    const spanName = document.createElement('span')
+    spanName.setAttribute('class', 'name')
+    spanName.innerHTML = title
+    containerDescription.appendChild(spanName)
 
-        } else {
-            const img = document.createElement('img');
-            img.alt = title;
-            img.setAttribute('src', picture);
-            article.appendChild(img);
-        }
+    const containerLike = document.createElement('div')
+    containerLike.setAttribute('class', 'container-like')
+    containerDescription.appendChild(containerLike)
 
-        //description sous la photo et bouton like
-        const containerDescription = document.createElement('div')
-        containerDescription.setAttribute('class', 'container-description')
+    const spanLikeNumber = document.createElement('span')
+    spanLikeNumber.setAttribute('class', 'like-number')
+    spanLikeNumber.innerHTML = likes
+    containerLike.appendChild(spanLikeNumber)
 
-        const spanName = document.createElement('span')
-        spanName.setAttribute('class', 'name')
-        spanName.innerHTML = title
-        containerDescription.appendChild(spanName)
+    const imageLikeIcon = document.createElement('img')
+    imageLikeIcon.src = '/assets/icons/favorite.png'
+    imageLikeIcon.alt = 'like'
+    containerLike.appendChild(imageLikeIcon)
 
-        const containerLike = document.createElement('div')
-        containerLike.setAttribute('class', 'container-like')
-        containerDescription.appendChild(containerLike)
+    imageLikeIcon.addEventListener('click', e => {
+      e.stopPropagation()
+      e.preventDefault()
 
-        const spanLikeNumber = document.createElement('span')
-        spanLikeNumber.setAttribute('class', 'like-number')
-        spanLikeNumber.innerHTML = likes
-        containerLike.appendChild(spanLikeNumber)
+      // increment like and total like one time on click
+      if (!imageLikeIcon.classList.contains('liked')) {
+        imageLikeIcon.classList.add('liked')
+        spanLikeNumber.innerHTML = likes + 1
 
-        const imageLikeIcon = document.createElement('img')
-        imageLikeIcon.src = '/assets/icons/favorite.png'
-        imageLikeIcon.alt = 'like'
-        containerLike.appendChild(imageLikeIcon)
+        console.log(state.medias)
 
-        imageLikeIcon.addEventListener('click', e => {
-            e.stopPropagation()
-            e.preventDefault()
+        const findCurrentMedia = state.medias.find(media => media.id === data.id)
+        findCurrentMedia.likes++
 
-            // increment like and total like one time on click
-            if (!imageLikeIcon.classList.contains('liked')) {
-                imageLikeIcon.classList.add('liked')
-                spanLikeNumber.innerHTML = likes + 1
+        const total = state.medias.reduce((acc, currentValue) => acc + currentValue.likes, 0)
+        totalLikes.textContent = `${total}`
+      }
+    })
 
-                console.log(state.medias)
+    article.appendChild(containerDescription)
 
-                let findCurrentMedia = state.medias.find(media => media.id === data.id)
-                findCurrentMedia.likes++
+    a.setAttribute('tabindex', '0') // rend les articles focusables
 
+    a.addEventListener('click', () => {
+      openCarousel()
+    })
 
-                const total = state.medias.reduce((acc, currentValue) => acc + currentValue.likes, 0)
-                totalLikes.textContent = `${total}`;
-            }
-        })
+    return a
+  }
 
-        article.appendChild(containerDescription)
-
-        a.setAttribute('tabindex', '0'); //rend les articles focusables
-
-        a.addEventListener('click', () => {
-            openCarousel();
-        });
-
-        return a;
-    };
-
-
-
-    return { getMediaCardDOM };
-};
+  return { getMediaCardDOM }
+}

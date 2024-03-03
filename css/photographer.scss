@@ -10,8 +10,8 @@
 }
 
 //Menu Déroulant
-.dropdown-container{
-    label{
+.dropdown-container {
+    label {
         color: #000;
         font-family: "DM Sans";
         font-size: 18px;
@@ -19,9 +19,20 @@
         font-weight: 700;
         line-height: normal;
     }
-    
-    #sort-dropdown{
-     
+
+    select {
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: white;
+        padding: 10px;
+        width: 100px;
+        height: 40px;
+        border: none;
+        background-color: $red;
+        border-radius: 5px;
+        cursor: pointer;
+        appearance: none;
+        border: none;
     }
 }
 

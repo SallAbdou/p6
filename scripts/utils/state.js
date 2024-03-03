@@ -1,3 +1,3 @@
 export const state = {
-    medias: null
+  medias: null
 }

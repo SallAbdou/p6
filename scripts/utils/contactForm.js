@@ -1,11 +1,10 @@
-import { contactModal } from "./domLinker";
+import { contactModal, imgCloseModal } from './domLinker'
 
-export function displayModal() {
-    contactModal.style.display = "block";
+export const displayModal = () => {
+  contactModal.style.display = 'block'
+  imgCloseModal.focus()
 }
 
-export function closeModal() {
-    contactModal.style.display = "none";
+export const closeModal = () => {
+  contactModal.style.display = 'none'
 }
-
-

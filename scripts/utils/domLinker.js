@@ -1,13 +1,13 @@
-export const photographersSection = document.querySelector(".photographer_section");
+export const photographersSection = document.querySelector('.photographer_section')
 
 export const mediaContainer = document.getElementById('medias')
 
-export const photographerHeader = document.getElementById('photographerHeader');
+export const photographerHeader = document.getElementById('photographerHeader')
 
-export const contactModal = document.getElementById("contact_modal");
+export const contactModal = document.getElementById('contact_modal')
 
 export const imgCloseModal = document.getElementById('img-close-modal')
-export const tarifJournalier = document.getElementById('tarif-journalier');
+export const tarifJournalier = document.getElementById('tarif-journalier')
 export const tarifContainer = document.querySelector('#tarifs')
 export const totalLikes = document.getElementById('total-likes')
 
@@ -18,7 +18,7 @@ export const email = document.getElementById('email')
 export const message = document.getElementById('message')
 export const form = document.querySelector('form')
 
-//lightbox
+// lightbox
 export const lightbox = document.getElementById('lightbox')
 export const btnCloseLightbox = document.getElementById('img-close-lightbox')
 export const lightboxContainer = document.getElementById('lightbox-container')
