@@ -72,7 +72,13 @@ export const photographerTemplate = data => {
     const contactButton = document.createElement('button')
     contactButton.textContent = 'Contactez-moi'
     contactButton.classList.add('contact_button')
+    // et les event listener pour l'ouvrir
     contactButton.onclick = () => displayModal()
+    contactButton.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        displayModal()
+      }
+    })
     article.appendChild(contactButton)
 
     // Affiche l'image

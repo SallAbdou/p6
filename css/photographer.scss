@@ -11,6 +11,9 @@
 
 //Menu Déroulant
 .dropdown-container {
+    margin-left: 5%;
+    margin-bottom: 3%;
+    margin-top: 1%;
     label {
         color: #000;
         font-family: "DM Sans";
@@ -21,11 +24,12 @@
     }
 
     select {
-        font-size: 0.8rem;
+        font-size: 18px;
+        font-family: "DM Sans";
         font-weight: bold;
         color: white;
         padding: 10px;
-        width: 100px;
+        width: 170px;
         height: 40px;
         border: none;
         background-color: $red;
@@ -33,7 +37,9 @@
         cursor: pointer;
         appearance: none;
         border: none;
+        
     }
+    
 }
 
 //fiche des photographes
@@ -131,7 +137,6 @@ section#medias {
             .class-perso-video {
                 width: 350px;
                 height: 300px;
-                padding-bottom: 10%;
                 object-fit: cover;
                 border-radius: 5px;
             }
@@ -150,6 +155,7 @@ section#medias {
                     letter-spacing: 0em;
                     text-align: left;
                     color: $red;
+                    padding-right: 10.38px;
                 }
 
                 .container-like {
@@ -169,7 +175,6 @@ section#medias {
                     img {
                         height: 19px;
                         width: 19px;
-                        padding-left: 10px;
                     }
                 }
             }

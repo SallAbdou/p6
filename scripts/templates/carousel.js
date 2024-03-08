@@ -35,6 +35,10 @@ export const openCarousel = () => {
   leftArrow.addEventListener('click', () => navigateCarousel('prev'))
   rightArrow.addEventListener('click', () => navigateCarousel('next'))
 
+  // On les rend focusable (mettre le carroussel sur un autre plan, pour pas avoir à défiler les images avant)
+  leftArrow.tabIndex = '0'
+  rightArrow.tabIndex = '0'
+
   updateCarousel()
 
   // Ajoute un événement pour fermer le carrousel
@@ -54,7 +58,7 @@ const keyPress = (event) => {
   } else if (event.key === 'ArrowRight') {
     navigateCarousel('next')
     console.log('testright')// test console
-  } else if (event.key === 'Escape') {
+  } else if (event.key === 'Enter') {
     closeCarousel()
   }
 }
