@@ -44,6 +44,7 @@ export const mediaTemplate = data => {
 
     const containerLike = document.createElement('div')
     containerLike.setAttribute('class', 'container-like')
+    containerLike.setAttribute('tabindex', 0)
     containerDescription.appendChild(containerLike)
 
     const spanLikeNumber = document.createElement('span')
@@ -56,7 +57,7 @@ export const mediaTemplate = data => {
     imageLikeIcon.alt = 'like'
     containerLike.appendChild(imageLikeIcon)
 
-    imageLikeIcon.addEventListener('click', e => {
+    containerLike.addEventListener('click', e => {
       e.stopPropagation()
       e.preventDefault()
 
