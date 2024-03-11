@@ -40,102 +40,137 @@
                 cursor: pointer;
             }
 
-            .left-arrow{
+            .left-arrow {
                 left: 188px;
                 position: fixed;
                 padding-top: 500px;
             }
 
-            .right-arrow{
+            .right-arrow {
                 right: 188px;
                 position: fixed;
                 padding-top: 500px;
             }
 
-           
-        }
-
 
         }
-        
 
-        //formulaire
-        form {
+
+    }
+
+
+    //formulaire
+    form {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+
+        div {
             display: flex;
-            width: 100%;
             flex-direction: column;
-            align-items: flex-start;
+            width: 100%;
+            align-items: self-start;
+            margin-bottom: 26px;
 
-            div {
-                display: flex;
-                flex-direction: column;
+            label {
+                color: #312E2E;
+                font-size: 36px;
+            }
+
+            input {
                 width: 100%;
-                align-items: self-start;
-                margin-bottom: 26px;
+                height: 68px;
+                border: none;
+                border-radius: 5px;
+            }
 
-                label {
-                    color: #312E2E;
-                    font-size: 36px;
-                }
+            .message_input {
+                height: 170px;
 
-                input {
-                    width: 100%;
-                    height: 68px;
-                    border: none;
-                    border-radius: 5px;
-                }
-
-                .message_input {
-                    height: 170px;
-
-                }
             }
         }
     }
+}
 
 
-#lightbox{
-    .modal{   
-         background-color: transparent;
-            header{
-               
-                div{
-                    position: fixed;
-                    bottom: 0;
-                }
-                #img-close-lightbox{
-                    position: fixed;
-                    right: 7%;
-                    top: 15px;
-                }
-    
+#lightbox {
+    background: white;
+    overflow: hidden;
+
+    .modal {
+        background-color: transparent;
+        width: 1253px;
+        height: 1024px;
+        margin-top: 0;
+
+        #img-close-lightbox {
+            position: fixed;
+            right: 5%;
+            top: 45px;
+        }
+
+        .arrows {
+            position: fixed;
+            cursor: pointer;
+            top: 50%;
+
+            &#left-arrow {
+                left: 3%;
             }
-                
-    }
-}
 
-#lightbox-container {
-    .carousel-image,
-    #carousel-video {
-        width: 1000px;
-        height: 700px;
-        object-fit: cover;
-        left: 50%;
-        transform: translateX(-50%);
-        position: fixed;
-        top: 1%;
-    }
-    
+            &#right-arrow {
+                right: 3%;
+            }
+        }
 
- #medias{
-    a {
-    
+
+
+        // #lightbox-container {
+
+        //     .carousel-image,
+        //     #carousel-video {
+        //         width: 1000px;
+        //         height: 700px;
+        //         object-fit: cover;
+        //         left: 50%;
+        //         transform: translateX(-50%);
+        //         position: fixed;
+        //         top: 1%;
+        //     }
+
+
+        //     #medias {
+        //         a {
+
+        //             article {
+        //                 position: fixed;
+        //                 bottom: 0px;
+        //             }
+
+        //         }
+        //     }
+        // }
+
         article {
-        position: fixed;
-        bottom: 0px; 
-     }
-    
-    } 
-  }
-}
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            margin-top: 0;
+            img {
+                object-fit: cover;
+                max-height: 750px;
+            }
 
+            p {
+                color: $red;
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 31.25px;
+                margin-top: 4px;
+            }
+        }
+
+    }
+}

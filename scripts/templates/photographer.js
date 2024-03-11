@@ -5,7 +5,7 @@ export const photographerTemplate = data => {
   const picture = `assets/photographers/${portrait}`
 
   // Importe les données des photographes
-  function getUserCardDOM () {
+  function getUserCardDOM() {
     const a = document.createElement('a')
     a.href = `photographer.html?id=${id}`
     const article = document.createElement('article')
@@ -44,7 +44,7 @@ export const photographerTemplate = data => {
     return (a)
   }
 
-  function getUserCardPhotographerDOM () {
+  function getUserCardPhotographerDOM() {
     const article = document.createElement('article')
 
     // Créer une div pour regrouper le nom, la ville, et la tagline
@@ -74,11 +74,7 @@ export const photographerTemplate = data => {
     contactButton.classList.add('contact_button')
     // et les event listener pour l'ouvrir
     contactButton.onclick = () => displayModal()
-    contactButton.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter') {
-        displayModal()
-      }
-    })
+
     article.appendChild(contactButton)
 
     // Affiche l'image
@@ -93,7 +89,7 @@ export const photographerTemplate = data => {
     return article
   }
 
-  function getPhotographerPageDOM () {
+  function getPhotographerPageDOM() {
     const page = document.createElement('div')
     page.classList.add('photographer-page')
     page.appendChild(getUserCardPhotographerDOM())

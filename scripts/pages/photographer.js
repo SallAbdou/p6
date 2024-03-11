@@ -7,10 +7,10 @@ import { mediaTemplate } from '../templates/media.js'
 import { getPhotographerById, getMediaByPhotographerId } from '../utils/api.js'
 import {
   photographerHeader, mediaContainer, imgCloseModal, firstname, name, email,
-  message, form, btnCloseLightbox
+  message, form, btnCloseLightbox, leftArrow, rightArrow, selectSortMedias
 } from '../utils/domLinker.js'
 import { closeModal } from '../utils/contactForm.js'
-import { closeCarousel } from '../templates/carousel.js'
+import { closeCarousel, navigateCarousel } from '../templates/carousel.js'
 import { likeTemplate } from '..//templates/like.js'
 import { state } from '../utils/state.js'
 import { sortMedia } from '../utils/sortMedia.js'
@@ -21,12 +21,22 @@ const getPhotographerIdFromURL = () => {
   return parseInt(urlParams.get('id'))
 }
 
+const updateMedias = () => {
+  mediaContainer.innerHTML = ''
+
+  state.medias.forEach(media => {
+    const mediaPageModel = mediaTemplate(media)
+    const mediaPageDOM = mediaPageModel.getMediaCardDOM()
+    mediaContainer.appendChild(mediaPageDOM)
+  })
+
+  console.log('state.medias:', state.medias)
+}
+
 const displayDataById = async () => {
   const photographerId = getPhotographerIdFromURL()
   const photographer = await getPhotographerById(photographerId)
   state.medias = await getMediaByPhotographerId(photographerId)
-
-  console.log('state.medias:', state.medias)
 
   if (photographer) {
     // Crée un modèle type de photographe, si les données sont récupérées
@@ -37,35 +47,22 @@ const displayDataById = async () => {
     likeTemplate(photographer).getLikesCardDOM()
 
     // creating medias
-    state.medias.forEach(media => {
-      const mediaPageModel = mediaTemplate(media)
-      const mediaPageDOM = mediaPageModel.getMediaCardDOM()
-      mediaContainer.appendChild(mediaPageDOM)
-    })
+    updateMedias()
   } else {
     console.error('Photographe non trouvé')
   }
 }
 
-// Fonction d'affichage des médias triés
-const displaySortedMedia = (sortBy) => {
-  mediaContainer.innerHTML = ''
-  const sortedMedia = sortMedia(state.medias.slice(), sortBy)
 
-  sortedMedia.forEach(media => {
-    const mediaPageModel = mediaTemplate(media)
-    const mediaPageDOM = mediaPageModel.getMediaCardDOM()
-    mediaContainer.appendChild(mediaPageDOM)
-  })
-}
-
-// EventListener
+// EventListener des modales
 imgCloseModal.addEventListener('click', () => closeModal())
 btnCloseLightbox.addEventListener('click', () => closeCarousel())
 // EventListener du menu déroulant
-document.getElementById('sort-dropdown').addEventListener('change', function () {
-  const sortBy = this.value // Ici, on récupère la valeur sélectionnée dans le dropdown
-  displaySortedMedia(sortBy) // Puis on appelle displaySortedMedia avec le tri sélectionné
+selectSortMedias.addEventListener('change', () => {
+  const sortBy = selectSortMedias.value // Ici, on récupère la valeur sélectionnée dans le dropdown
+  // Puis on applique le tri sélectionné
+  state.medias = sortMedia(state.medias.slice(), sortBy)
+  updateMedias()
 })
 
 // Focus de la modale
@@ -87,3 +84,53 @@ form.addEventListener('submit', e => {
 })
 
 displayDataById()
+
+// events lightbox
+leftArrow.addEventListener('click', () => navigateCarousel(-1))
+rightArrow.addEventListener('click', () => navigateCarousel(1))
+
+// All events keys pressed
+const keyPress = (event) => {
+  const key = event.key || event.keyCode
+
+  if (key === 'ArrowLeft' || key === 37) {
+    navigateCarousel(-1)
+  }
+  if (key === 'ArrowRight' || key === 39) {
+    navigateCarousel(1)
+  }
+
+  // press Escape
+  if (key === 'Escape' || key === 'Esc' || key === 27) {
+    closeCarousel()
+    closeModal()
+  }
+
+  if (key === 'Enter') {
+    console.log('enter pressed', event.target)
+
+    if (event.target === btnCloseLightbox) {
+      closeCarousel()
+    }
+
+    if (event.target === imgCloseModal) {
+      closeModal()
+    }
+
+    if (event.target === leftArrow) {
+      navigateCarousel(-1)
+    }
+
+    if (event.target === rightArrow) {
+      navigateCarousel(1)
+    }
+
+    if (event.target.classList.contains('container-like')) {
+      event.stopPropagation()
+      event.preventDefault()
+      event.target.click()
+    }
+  }
+}
+
+document.addEventListener('keydown', keyPress)

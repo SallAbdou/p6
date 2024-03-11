@@ -66,8 +66,6 @@ export const mediaTemplate = data => {
         imageLikeIcon.classList.add('liked')
         spanLikeNumber.innerHTML = likes + 1
 
-        console.log(state.medias)
-
         const findCurrentMedia = state.medias.find(media => media.id === data.id)
         findCurrentMedia.likes++
 
@@ -81,7 +79,7 @@ export const mediaTemplate = data => {
     a.setAttribute('tabindex', '0') // rend les articles focusables
 
     a.addEventListener('click', () => {
-      openCarousel()
+      openCarousel(data)
     })
 
     return a

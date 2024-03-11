@@ -24,3 +24,9 @@ export const btnCloseLightbox = document.getElementById('img-close-lightbox')
 export const lightboxContainer = document.getElementById('lightbox-container')
 export const leftArrow = document.getElementById('left-arrow')
 export const rightArrow = document.getElementById('right-arrow')
+export const imgLightbox = document.querySelector('#lightbox-container img')
+export const titleLightbox = document.querySelector('#lightbox-container p')
+export const videoLightbox = document.querySelector('#lightbox-container video')
+
+// sort
+export const selectSortMedias = document.getElementById('sort-dropdown')

@@ -65,14 +65,19 @@
     </div>
     <div id="lightbox">
       <div class="modal">
-        <header>
-          <!--bouton de fermeture de la modale-->
-          <img id="img-close-lightbox" src="assets/icons/close.svg" />
-          <!-- Flèche de gauche -->
-          <img id="left-arrow" src="assets/icons/left.png" />
-          <!-- Flèche de droite -->
-          <img id="right-arrow" src="assets/icons/right.png" />
-          <div id="lightbox-container"></div>
+        <!--bouton de fermeture de la modale-->
+        <img id="img-close-lightbox" src="assets/icons/close-red.svg" tabindex="0" />
+        <!-- Flèche de gauche -->
+        <img id="left-arrow" class="arrows" src="assets/icons/left.png" tabindex="0" />
+        <!-- Flèche de droite -->
+        <img id="right-arrow" class="arrows" src="assets/icons/right.png" tabindex="0" />
+
+        <article id="lightbox-container">
+          <img>
+          <video width="100%" height="auto" controls="controls" type="video/mp4"></video>
+          <p></p>
+        </article>
+
       </div>
     </div>
   </main>
