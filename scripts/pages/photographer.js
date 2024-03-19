@@ -53,7 +53,6 @@ const displayDataById = async () => {
   }
 }
 
-
 // EventListener des modales
 imgCloseModal.addEventListener('click', () => closeModal())
 btnCloseLightbox.addEventListener('click', () => closeCarousel())

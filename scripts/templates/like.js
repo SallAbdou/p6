@@ -6,10 +6,6 @@ export const likeTemplate = photographerData => {
     // test pour afficher les tarifs journalier des photographes
     tarifJournalier.textContent = `${photographerData.price} €/jour`
     // calcul du nombre de likes
-    // let totalLikes = 0;
-    // medias.forEach(media => {
-    //     totalLikes += media.likes || 0;
-    // });
     const total = state.medias.reduce((acc, currentValue) => acc + currentValue.likes, 0)
 
     // Ajouter le nombre total de likes au tarif container

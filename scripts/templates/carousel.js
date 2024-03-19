@@ -44,5 +44,3 @@ export const openCarousel = data => {
 export const closeCarousel = () => {
   lightbox.style.display = 'none'
 }
-
-
