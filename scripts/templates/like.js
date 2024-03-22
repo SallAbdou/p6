@@ -3,7 +3,7 @@ import { state } from '../utils/state'
 
 export const likeTemplate = photographerData => {
   const getLikesCardDOM = () => {
-    // test pour afficher les tarifs journalier des photographes
+    // Affichage du tarif journalier du photographe
     tarifJournalier.textContent = `${photographerData.price} €/jour`
     // calcul du nombre de likes
     const total = state.medias.reduce((acc, currentValue) => acc + currentValue.likes, 0)
